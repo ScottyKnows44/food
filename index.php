@@ -8,16 +8,22 @@ require_once('vendor/autoload.php');
 $f3 = Base::instance();
 
 //run $f3
-/*$f3->route('GET / ', function(){
+
+$f3->route('GET / ', function(){
     //echo '<h1>It is raining today</h1>';
     $view = new Template();
     echo $view->render('views/home.html');
 });
-*/
+
 //breakfast route
 $f3->route('GET /breakfast ', function(){
     $view = new Template();
     echo $view->render('views/bfast.html');
+});
+
+$f3->route('GET /breakfast/green-eggs ', function(){
+    $view = new Template();
+    echo $view->render('views/greenEggsAndHam.html');
 });
 
 $f3-> run();

@@ -34,7 +34,7 @@ $f3->route('GET|POST /order ', function($f3){
         $meals = array("breakfast", "lunch", "dinner");
 
         if(empty($_POST['food']) || !in_array($_POST['meal'], $meals)){
-            echo "<p>Please enter a food</p>";
+            echo "<p>Please enter a meal</p>";
         } else{
             $_SESSION['food'] = $_POST['food'];
             $_SESSION['meal'] = $_POST['meal'];
@@ -42,6 +42,9 @@ $f3->route('GET|POST /order ', function($f3){
             session_destroy();
         }
     }
+
+    $meals = array("breakfast", "lunch", "dinner");
+    $f3->set('meals', $meals);
 
     $view = new Template();
     echo $view->render('views/order.html');
